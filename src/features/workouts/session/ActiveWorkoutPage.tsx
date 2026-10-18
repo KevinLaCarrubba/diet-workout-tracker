@@ -16,6 +16,7 @@ import {
   UnstyledButton,
 } from '@mantine/core';
 import {
+  IconCube,
   IconArrowDown,
   IconArrowLeft,
   IconArrowRight,
@@ -30,6 +31,8 @@ import {
 import { useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router';
 import { StatusIndicator } from '@/components/StatusIndicator';
+import { ExerciseDemo } from '@/features/exercise-viewer/LazyExerciseViewer';
+import { useHasDemo } from '@/features/exercise-viewer/useHasDemo';
 import { usePreferences, useSettings } from '@/features/profile/api';
 import { unlockAudio } from '@/lib/feedback';
 import { formatDuration } from '@/lib/time';
@@ -39,6 +42,7 @@ import {
   fetchPreviousPerformance,
   rememberPerformance,
   toExerciseInfo,
+  useExercises,
   usePreviousPerformance,
   type Exercise,
 } from '../api';
@@ -96,6 +100,10 @@ export function ActiveWorkoutPage() {
   const [details, setDetails] = useState<null | { exerciseId: string; setId: string }>(null);
   const [finishing, setFinishing] = useState(false);
   const [discarding, setDiscarding] = useState(false);
+  const [demoOpen, setDemoOpen] = useState(false);
+  const catalog = useExercises();
+  const currentForDemo = draft?.exercises[draft.current_exercise_index];
+  const hasDemo = useHasDemo(currentForDemo?.exercise_name_snapshot);
 
   if (loading) {
     return (
@@ -311,6 +319,16 @@ export function ActiveWorkoutPage() {
                   </Text>
                 )}
               </div>
+              {hasDemo && (
+                <ActionIcon
+                  size={44}
+                  variant="light"
+                  aria-label="Watch 3D demo"
+                  onClick={() => setDemoOpen(true)}
+                >
+                  <IconCube size={20} />
+                </ActionIcon>
+              )}
               <Menu position="bottom-end">
                 <Menu.Target>
                   <ActionIcon size={44} aria-label="Exercise options">
@@ -474,6 +492,28 @@ export function ActiveWorkoutPage() {
           onSkip={() => local((d) => skipRest(d))}
         />
       )}
+
+      <Modal
+        opened={demoOpen && !!current}
+        onClose={() => setDemoOpen(false)}
+        title={current?.exercise_name_snapshot}
+        fullScreen
+        radius={0}
+      >
+        {current && demoOpen && (
+          <ExerciseDemo
+            exercise={{
+              id: current.exercise_id ?? current.id,
+              name: current.exercise_name_snapshot,
+              primary_muscles: current.primary_muscles_snapshot,
+              instructions: catalog.data?.find((e) => e.id === current.exercise_id)?.instructions ?? null,
+            }}
+          />
+        )}
+        <Button fullWidth mt="md" variant="default" onClick={() => setDemoOpen(false)}>
+          Back to workout
+        </Button>
+      </Modal>
 
       <ExercisePickerModal
         opened={picker != null}

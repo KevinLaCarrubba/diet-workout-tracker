@@ -13,6 +13,8 @@ export interface ExerciseAssetEntry {
   meshesByMuscle: Record<string, string[]>;
   durationSeconds?: number;
   camera?: { target: Vec3; distance: number; view?: CameraView };
+  /** Other names for the same movement (e.g. a coach's wording) that should show this demo. */
+  aliases?: string[];
 }
 
 /** Keyed by the exact shared-catalog exercise name. */
@@ -64,6 +66,9 @@ export function parseManifest(raw: unknown): ExerciseManifest {
       ...entry,
       file: entry.file,
       primaryMuscles: Array.isArray(entry.primaryMuscles) ? entry.primaryMuscles : [],
+      ...(Array.isArray(entry.aliases)
+        ? { aliases: entry.aliases.filter((a) => typeof a === 'string') }
+        : {}),
       meshesByMuscle:
         entry.meshesByMuscle && typeof entry.meshesByMuscle === 'object' ? entry.meshesByMuscle : {},
     };
@@ -90,6 +95,9 @@ export function resolveExerciseAsset(
   if (!wanted) return null;
   for (const [name, entry] of Object.entries(manifest)) {
     if (normalizeExerciseName(name) === wanted) return entry;
+  }
+  for (const entry of Object.values(manifest)) {
+    if (entry.aliases?.some((alias) => normalizeExerciseName(alias) === wanted)) return entry;
   }
   return null;
 }

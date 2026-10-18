@@ -192,3 +192,19 @@ describe('capability probes', () => {
     expect(prefersSaveData({} as Navigator)).toBe(false);
   });
 });
+
+describe('aliases', () => {
+  it("resolves a coach's wording to the matching demo", async () => {
+    const { resolveExerciseAsset, parseManifest } = await import('./manifest');
+    const manifest = parseManifest({
+      'Push-Up': {
+        file: 'push-up.glb',
+        primaryMuscles: ['chest'],
+        meshesByMuscle: {},
+        aliases: ['Push-ups'],
+      },
+    });
+    expect(resolveExerciseAsset(manifest, 'push-ups')?.file).toBe('push-up.glb');
+    expect(resolveExerciseAsset(manifest, 'Chest Dips')).toBeNull();
+  });
+});

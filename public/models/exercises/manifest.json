@@ -10,15 +10,28 @@
       "core": ["abs"]
     },
     "durationSeconds": 3.4,
-    "camera": { "target": [0, 0.9, 0], "distance": 3.4, "view": "side" }
+    "camera": {
+      "target": [0, 0.9, 0],
+      "distance": 3.4,
+      "view": "side"
+    }
   },
   "Goblet Squat": {
     "file": "goblet-squat.glb",
     "primaryMuscles": ["quads", "glutes"],
     "secondaryMuscles": ["core"],
-    "meshesByMuscle": { "quads": ["quads_l", "quads_r"], "glutes": ["glute_l", "glute_r"], "core": ["abs"] },
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "core": ["abs"]
+    },
     "durationSeconds": 3.2,
-    "camera": { "target": [0, 0.85, 0], "distance": 3.3, "view": "side" }
+    "camera": {
+      "target": [0, 0.85, 0],
+      "distance": 3.3,
+      "view": "side"
+    },
+    "aliases": ["Kettlebell Squats"]
   },
   "Barbell Bench Press": {
     "file": "barbell-bench-press.glb",
@@ -30,7 +43,11 @@
       "shoulders": ["delt_l", "delt_r"]
     },
     "durationSeconds": 3,
-    "camera": { "target": [0, 0.6, -0.1], "distance": 3.2, "view": "side" }
+    "camera": {
+      "target": [0, 0.6, -0.1],
+      "distance": 3.2,
+      "view": "side"
+    }
   },
   "Push-Up": {
     "file": "push-up.glb",
@@ -43,7 +60,12 @@
       "core": ["abs"]
     },
     "durationSeconds": 2.6,
-    "camera": { "target": [0, 0.35, -0.15], "distance": 3, "view": "side" }
+    "camera": {
+      "target": [0, 0.35, -0.15],
+      "distance": 3,
+      "view": "side"
+    },
+    "aliases": ["Push-ups"]
   },
   "Deadlift": {
     "file": "deadlift.glb",
@@ -57,7 +79,11 @@
       "core": ["abs"]
     },
     "durationSeconds": 3.6,
-    "camera": { "target": [0, 0.75, 0], "distance": 3.4, "view": "side" }
+    "camera": {
+      "target": [0, 0.75, 0],
+      "distance": 3.4,
+      "view": "side"
+    }
   },
   "Romanian Deadlift": {
     "file": "romanian-deadlift.glb",
@@ -69,7 +95,11 @@
       "back": ["upper_back", "lats_l", "lats_r"]
     },
     "durationSeconds": 3.6,
-    "camera": { "target": [0, 0.85, 0], "distance": 3.4, "view": "side" }
+    "camera": {
+      "target": [0, 0.85, 0],
+      "distance": 3.4,
+      "view": "side"
+    }
   },
   "Overhead Press": {
     "file": "overhead-press.glb",
@@ -81,7 +111,11 @@
       "core": ["abs"]
     },
     "durationSeconds": 3,
-    "camera": { "target": [0, 1.15, 0], "distance": 3.6, "view": "front" }
+    "camera": {
+      "target": [0, 1.15, 0],
+      "distance": 3.6,
+      "view": "front"
+    }
   },
   "Barbell Row": {
     "file": "barbell-row.glb",
@@ -93,15 +127,28 @@
       "rear delts": ["delt_l", "delt_r"]
     },
     "durationSeconds": 2.6,
-    "camera": { "target": [0, 0.8, 0], "distance": 3.3, "view": "side" }
+    "camera": {
+      "target": [0, 0.8, 0],
+      "distance": 3.3,
+      "view": "side"
+    },
+    "aliases": ["Bent Over Barbell Row"]
   },
   "Pull-Up": {
     "file": "pull-up.glb",
     "primaryMuscles": ["back"],
     "secondaryMuscles": ["biceps"],
-    "meshesByMuscle": { "back": ["upper_back", "lats_l", "lats_r"], "biceps": ["biceps_l", "biceps_r"] },
+    "meshesByMuscle": {
+      "back": ["upper_back", "lats_l", "lats_r"],
+      "biceps": ["biceps_l", "biceps_r"]
+    },
     "durationSeconds": 3.2,
-    "camera": { "target": [0, 1.5, 0], "distance": 4.2, "view": "front" }
+    "camera": {
+      "target": [0, 1.5, 0],
+      "distance": 4.2,
+      "view": "front"
+    },
+    "aliases": ["Pull-ups"]
   },
   "Walking Lunge": {
     "file": "walking-lunge.glb",
@@ -113,22 +160,42 @@
       "hamstrings": ["hamstrings_l", "hamstrings_r"]
     },
     "durationSeconds": 4.4,
-    "camera": { "target": [0, 0.85, 0], "distance": 3.5, "view": "side" }
+    "camera": {
+      "target": [0, 0.85, 0],
+      "distance": 3.5,
+      "view": "side"
+    },
+    "aliases": ["Heavy Lunges", "Bodyweight Lunges"]
   },
   "Lateral Raise": {
     "file": "lateral-raise.glb",
     "primaryMuscles": ["shoulders"],
     "secondaryMuscles": [],
-    "meshesByMuscle": { "shoulders": ["delt_l", "delt_r"] },
+    "meshesByMuscle": {
+      "shoulders": ["delt_l", "delt_r"]
+    },
     "durationSeconds": 2.8,
-    "camera": { "target": [0, 1.05, 0], "distance": 3.6, "view": "front" }
+    "camera": {
+      "target": [0, 1.05, 0],
+      "distance": 3.6,
+      "view": "front"
+    },
+    "aliases": ["Seated Dumbbell Lateral Raise"]
   },
   "Dumbbell Curl": {
     "file": "dumbbell-curl.glb",
     "primaryMuscles": ["biceps"],
     "secondaryMuscles": ["forearms"],
-    "meshesByMuscle": { "biceps": ["biceps_l", "biceps_r"], "forearms": ["forearm_l", "forearm_r"] },
+    "meshesByMuscle": {
+      "biceps": ["biceps_l", "biceps_r"],
+      "forearms": ["forearm_l", "forearm_r"]
+    },
     "durationSeconds": 2.6,
-    "camera": { "target": [0, 1.05, 0], "distance": 3.4, "view": "side" }
+    "camera": {
+      "target": [0, 1.05, 0],
+      "distance": 3.4,
+      "view": "side"
+    },
+    "aliases": ["Standing Alternating Dumbbell Curl"]
   }
 }
