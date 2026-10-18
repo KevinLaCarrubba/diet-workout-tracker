@@ -20,3 +20,4 @@ scripts/smoke-*.mjs
 # Local Claude/Vercel state
 .claude/settings.local.json
 .vercel
+.env*
