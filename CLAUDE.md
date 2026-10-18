@@ -2,6 +2,7 @@
 
 Private, mobile-first fitness PWA for 2–5 invited users. Spec: `FitTrack_Claude_Code_Build_Spec.md`.
 Progress checklist: `docs/implementation-plan.md` (keep it updated as phases land).
+**Start here when resuming:** `HANDOFF.md` — current state, the owner's live schedule, open items and gotchas.
 
 ## Hard rules
 

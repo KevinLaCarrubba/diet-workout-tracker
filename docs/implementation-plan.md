@@ -34,8 +34,9 @@ Status: `[x]` done · `[ ]` todo · `[~]` partial
 ## Coach plan import (owner's account)
 
 - [x] Coach-plan schema: meal numbering vs display order, literal items, coach notes, relative timing, conflict flag, snooze; workout groups, tempo, rep modes, timed sets, alternatives
-- [x] Idempotent `import_coach_plan` + seed JSON; imported for klacarrubba.dev@gmail.com (6 templates, 67 slots, Thursday rest, 6 meals; Meal 3 flagged; Meals 3/4 off Thursdays)
-- [ ] Pending owner approval: remote update of `sync_workout_session` (coach_plans_2_sync) so tempo/rep-mode/timed seconds are stored with history
+- [x] Idempotent `import_coach_plan` + seed JSON; imported for klacarrubba.dev@gmail.com (6 templates, 67 slots, Thursday rest, 6 meals)
+- [x] Remote update of `sync_workout_session` (coach_plans_2_sync) so tempo/rep-mode/timed seconds are stored with history
+- [x] Owner's times (2026-10-18): wake 3:30, labels in eating order (pre-workout = Meal 2 on training days), Thursday keeps all six meals (Thursday-only rows) — see `HANDOFF.md`
 
 ## Phase 3 — Meals and water
 
@@ -59,6 +60,8 @@ Status: `[x]` done · `[ ]` todo · `[~]` partial
 
 - [x] Lazy `<ExerciseViewer>` (R3F + Drei) with play/pause, speed, front/side, muscle highlight, static fallback
 - [x] 12 original GLB demos generated from data (`scripts/generate-exercise-models.mjs`), excluded from precache
+- [x] Coach-plan demos: 63 GLBs total (every coach exercise + alternative, tempo-timed), aliases in `manifest.ts`, coverage enforced by `library.test.ts`; "Watch 3D demo" in the active workout
+- [~] Week-one review of approximated machines with the owner (list in `HANDOFF.md`)
 
 ## Phase 7 — Hardening and deployment
 
@@ -67,7 +70,6 @@ Status: `[x]` done · `[ ]` todo · `[~]` partial
 - [x] Playwright E2E (auth, PWA, a11y, RLS isolation, offline workout exactly-once) — 7/7 passing
 - [x] Notification failure handling verified live (410 → subscription revoked; concurrent runs deduplicated)
 - [x] Runbook (`docs/runbook.md`), README, `vercel.json`
-- [ ] Owner: deploy to Vercel (needs your Vercel account) and set Supabase Site URL to the deployed URL
+- [x] Deployed to Vercel (https://fittrack-sand-one.vercel.app, auto-deploys from `main`); Site URL set
 - [ ] Owner: enable leaked-password protection (Supabase Auth settings)
-- [ ] Owner: approve the pending `coach_plans_2_sync` migration
 - [ ] Before inviting real people: remove test accounts (admin@/alice@/bob@example.com)
