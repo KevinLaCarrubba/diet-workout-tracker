@@ -747,8 +747,8 @@
       "key": "meal-4",
       "meal_number": 4,
       "display_order": 3,
-      "label": "Meal 4",
-      "description": "Post-workout meal",
+      "label": "Meal 3 (Post-workout)",
+      "description": "Protein and cream of rice",
       "local_time": "06:30",
       "weekdays": [1, 2, 3, 5, 6, 7],
       "items": [
@@ -768,7 +768,7 @@
       "key": "meal-2",
       "meal_number": 2,
       "display_order": 4,
-      "label": "Meal 2",
+      "label": "Meal 4",
       "description": "Beef",
       "local_time": "09:00",
       "weekdays": [1, 2, 3, 5, 6, 7],
@@ -792,8 +792,8 @@
       "key": "meal-3",
       "meal_number": 3,
       "display_order": 2,
-      "label": "Meal 3",
-      "description": "Pre-workout meal",
+      "label": "Meal 2 (Pre-workout)",
+      "description": "Chicken or turkey, rice, peanut butter",
       "local_time": "04:00",
       "weekdays": [1, 2, 3, 5, 6, 7],
       "items": [
@@ -882,7 +882,7 @@
       "meal_number": 3,
       "display_order": 3,
       "label": "Meal 3",
-      "description": "Pre-workout meal",
+      "description": "Chicken or turkey, rice, peanut butter",
       "local_time": "10:15",
       "weekdays": [4],
       "items": [
@@ -904,7 +904,7 @@
       "meal_number": 4,
       "display_order": 4,
       "label": "Meal 4",
-      "description": "Post-workout meal",
+      "description": "Protein and cream of rice",
       "local_time": "13:15",
       "weekdays": [4],
       "items": [
