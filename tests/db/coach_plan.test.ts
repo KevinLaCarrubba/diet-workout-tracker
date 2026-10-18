@@ -34,7 +34,7 @@ beforeAll(async () => {
 describe('coach plan import', () => {
   it('imports once and is idempotent', async () => {
     const first = await runImport(me);
-    expect(first).toMatchObject({ templates: 6, schedules: 7, meals: 6 });
+    expect(first).toMatchObject({ templates: 6, schedules: 7, meals: 9 });
     expect(first.exercises).toBeGreaterThan(50);
     const second = await runImport(me);
     expect(second).toEqual({ templates: 0, exercises: 0, schedules: 0, meals: 0 });
@@ -111,7 +111,7 @@ describe('coach plan import', () => {
     expect(sunday.slice(0, 2)).toEqual(['Cable Lat Pushdowns', 'Seated Neutral Grip Lat Pulldown']);
   });
 
-  it('loads six meals with coach numbering, rest-day exceptions and Meal 3 before the gym', async () => {
+  it('loads six meals with coach numbering, Meal 3 before the gym and a spaced-out Thursday', async () => {
     const meals = await asUser(db, me, (tx) =>
       tx.query<{
         meal_number: number;
@@ -122,7 +122,7 @@ describe('coach plan import', () => {
         items: unknown[];
       }>(
         `select meal_number, display_order, local_time, recurrence_weekdays, needs_confirmation, items
-           from public.meal_schedules order by display_order`,
+           from public.meal_schedules where import_key not like '%-thu' order by display_order`,
       ),
     );
     expect(meals.rows.map((m) => [m.meal_number, m.local_time])).toEqual([
@@ -137,18 +137,26 @@ describe('coach plan import', () => {
     expect(m3.needs_confirmation).toBe(false);
     expect(m3.recurrence_weekdays).not.toContain(4);
     expect(meals.rows.find((m) => m.meal_number === 4)!.recurrence_weekdays).not.toContain(4);
-    expect(meals.rows.find((m) => m.meal_number === 2)!.recurrence_weekdays).toContain(4);
+    expect(meals.rows.find((m) => m.meal_number === 2)!.recurrence_weekdays).not.toContain(4);
+    expect(meals.rows.find((m) => m.meal_number === 5)!.recurrence_weekdays).toContain(4);
 
-    // Thursday 2030-07-04: four meals, no pre/post-workout meals.
+    // Thursday 2030-07-04 (rest day): all six meals, spaced through the day.
     await asUser(db, me, (tx) =>
       tx.query(`select public.ensure_my_meal_occurrences('2030-07-04', '2030-07-04')`),
     );
     const thu = await asUser(db, me, (tx) =>
-      tx.query<{ meal_number: number; items_snapshot: unknown[] }>(
-        `select meal_number, items_snapshot from public.meal_occurrences order by display_order`,
+      tx.query<{ meal_number: number; local_time: string; items_snapshot: unknown[] }>(
+        `select meal_number, local_time, items_snapshot from public.meal_occurrences order by display_order`,
       ),
     );
-    expect(thu.rows.map((r) => r.meal_number)).toEqual([1, 2, 5, 6]);
+    expect(thu.rows.map((r) => [r.meal_number, r.local_time])).toEqual([
+      [1, '03:35:00'],
+      [2, '07:00:00'],
+      [3, '10:15:00'],
+      [4, '13:15:00'],
+      [5, '16:30:00'],
+      [6, '20:00:00'],
+    ]);
     expect(thu.rows[0]!.items_snapshot).toEqual([{ text: '2 scoops whey protein' }]);
   });
 
