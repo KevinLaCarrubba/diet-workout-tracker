@@ -9,7 +9,12 @@ import { useAuth } from './useAuth';
 
 const schema = z
   .object({
-    password: z.string().min(8, 'Use at least 8 characters'),
+    // Mirrors the Supabase Auth policy (min 10, letters + digits).
+    password: z
+      .string()
+      .min(10, 'Use at least 10 characters')
+      .regex(/[A-Za-z]/, 'Include at least one letter')
+      .regex(/\d/, 'Include at least one number'),
     confirm: z.string(),
   })
   .refine((v) => v.password === v.confirm, { path: ['confirm'], message: 'Passwords do not match' });
