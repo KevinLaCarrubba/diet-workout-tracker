@@ -1,6 +1,7 @@
 import type { Session } from '@supabase/supabase-js';
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { requestPersistentStorage } from '@/lib/persistentStorage';
 import { supabase } from '@/lib/supabase';
 import { AuthContext } from './authContext';
 
@@ -28,6 +29,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       data.subscription.unsubscribe();
     };
   }, [queryClient]);
+
+  // Keep the session and offline data from being evicted while signed in.
+  const signedIn = !!session;
+  useEffect(() => {
+    if (signedIn) void requestPersistentStorage();
+  }, [signedIn]);
 
   const value = useMemo(
     () => ({ session, loading, recovering, clearRecovery: () => setRecovering(false) }),
