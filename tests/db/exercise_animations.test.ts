@@ -20,9 +20,9 @@ describe('generated exercise demo assets', () => {
     { file: string; primaryMuscles: string[]; meshesByMuscle: Record<string, string[]> }
   >;
 
-  it('covers the initial exercise set by exact catalog name', () => {
-    expect(Object.keys(manifest).sort()).toEqual(
-      [
+  it('covers the initial catalog set by exact name', () => {
+    expect(Object.keys(manifest)).toEqual(
+      expect.arrayContaining([
         'Back Squat',
         'Goblet Squat',
         'Barbell Bench Press',
@@ -35,19 +35,27 @@ describe('generated exercise demo assets', () => {
         'Walking Lunge',
         'Lateral Raise',
         'Dumbbell Curl',
-      ].sort(),
+      ]),
     );
   });
 
   it('keeps every GLB small and maps every primary muscle to meshes', () => {
+    let total = 0;
     for (const [name, entry] of Object.entries(manifest)) {
       const size = statSync(join(modelsDir, entry.file)).size;
+      total += size;
       expect(size, name).toBeGreaterThan(1000);
       expect(size, name).toBeLessThan(150 * 1024);
       for (const muscle of entry.primaryMuscles) {
         expect(entry.meshesByMuscle[muscle]?.length, `${name}: ${muscle}`).toBeGreaterThan(0);
       }
     }
+    expect(total).toBeLessThan(4 * 1024 * 1024);
+  });
+
+  it('gives every asset its own file', () => {
+    const files = Object.values(manifest).map((entry) => entry.file);
+    expect(new Set(files).size).toBe(files.length);
   });
 });
 
@@ -64,7 +72,8 @@ describe('exercise animations seed', () => {
          order by e.name`,
       ),
     );
-    expect(rows.rows).toHaveLength(Object.keys(manifest).length);
+    // Only shared catalog exercises get rows; coach-plan exercises are user-owned and match by name.
+    expect(rows.rows).toHaveLength(12);
     for (const row of rows.rows) {
       const entry = manifest[row.name];
       expect(entry, row.name).toBeDefined();

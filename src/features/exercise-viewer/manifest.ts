@@ -12,6 +12,8 @@ export interface ExerciseAssetEntry {
   /** Mesh names in the GLB that represent each muscle group. */
   meshesByMuscle: Record<string, string[]>;
   durationSeconds?: number;
+  /** Coach tempo the clip follows ("eccentric-pause-concentric-pause", seconds). */
+  tempo?: string;
   camera?: { target: Vec3; distance: number; view?: CameraView };
   /** Other names for the same movement (e.g. a coach's wording) that should show this demo. */
   aliases?: string[];
