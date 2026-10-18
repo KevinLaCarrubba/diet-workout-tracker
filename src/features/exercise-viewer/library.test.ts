@@ -32,8 +32,61 @@ const BATCH_1 = [
   'Dead Weight Hangs',
 ];
 
+/** Batch 2: Tuesday, Friday and Saturday (plus the Kettlebell alternatives). */
+const BATCH_2 = [
+  'Quad Extensions',
+  'Hamstring Curls',
+  'Pendulum Squat',
+  'Hack Squat',
+  'Hips Adductors (Close Legs)',
+  'Hip Abductors (Open Legs)',
+  'Heavy Hip Thrusts',
+  'Wall Sits',
+  'Dumbbell Split Squats',
+  'Kettlebell Split Squats',
+  'Seated Calf Raise',
+  'Standing Calf Raise',
+  'Incline Y-Raise',
+  'Lying Dumbbell Rear Delt Flyes',
+  'Hammer Dumbbell Front Raise',
+  'Cable Pushdown w/ Rope',
+  'Single Hand Cable Pushdown',
+  'Overhead Cable Tricep Extension',
+  'Seated Triceps Pushdown Machine',
+  'Cable Tricep Kickback',
+  'Pec Deck Machine Chest Flyes',
+  'Seated Machine Press',
+  'Incline Machine Press',
+  'Smith Machine Flat Bench',
+  'Chest Dips',
+  'Weighted Step-ups (on bench or box)',
+  'Bodyweight Squats',
+  'Kettlebell Squats',
+];
+
+/** Coach names that are the same movement as another demo (resolved via aliases). */
+const ALIASED = {
+  'Light Hip Thrusts': 'Heavy Hip Thrusts',
+  'Hack Squat (Light Weight)': 'Hack Squat',
+  'Heavy Lunges': 'Walking Lunge',
+  'Bodyweight Lunges': 'Walking Lunge',
+  'Push-ups': 'Push-Up',
+  'Pull-ups': 'Pull-Up',
+  'Bent Over Barbell Row': 'Barbell Row',
+  'Standing Alternating Dumbbell Curl': 'Dumbbell Curl',
+  'Seated Dumbbell Lateral Raise': 'Lateral Raise',
+};
+
+/** Every exercise name in the coach plan, including listed alternatives. */
+const planNames = coachPlan.workouts.flatMap((w) =>
+  w.items.flatMap((i) => [
+    i.name,
+    ...('alternatives' in i && Array.isArray(i.alternatives) ? i.alternatives : []),
+  ]),
+);
+
 describe('exercise demo library', () => {
-  it.each(BATCH_1)('"%s" has its own demo keyed by the exact coach name', (name) => {
+  it.each([...BATCH_1, ...BATCH_2])('"%s" has its own demo keyed by the exact coach name', (name) => {
     const entry = manifest[name];
     expect(entry).toBeDefined();
     expect(resolveExerciseAsset(manifest, name)).toBe(entry);
@@ -46,16 +99,19 @@ describe('exercise demo library', () => {
     expect(manifest['Cable Crossovers']?.tempo).toBe('2-3-1-0');
   });
 
-  it('resolves every Sunday, Monday and Wednesday coach exercise (directly or by alias)', () => {
-    const days = coachPlan.workouts.filter((w) => ['sun', 'mon', 'wed'].includes(w.key));
-    const missing = days
-      .flatMap((w) => w.items.map((i) => i.name))
-      .filter((n) => !resolveExerciseAsset(manifest, n));
+  it('resolves every coach plan exercise and alternative (none intentionally left out)', () => {
+    expect(planNames.length).toBeGreaterThan(60);
+    const missing = planNames.filter((n) => !resolveExerciseAsset(manifest, n));
     expect(missing).toEqual([]);
   });
 
+  it.each(Object.entries(ALIASED))('"%s" shows the "%s" demo', (alias, target) => {
+    expect(manifest[alias]).toBeUndefined();
+    expect(resolveExerciseAsset(manifest, alias)).toBe(manifest[target]);
+  });
+
   it('maps the coach plan muscle groups to highlight meshes', () => {
-    for (const day of coachPlan.workouts.filter((w) => ['sun', 'mon', 'wed'].includes(w.key))) {
+    for (const day of coachPlan.workouts) {
       for (const item of day.items) {
         const entry = resolveExerciseAsset(manifest, item.name)!;
         const { muscles } = resolveHighlight(entry, item.muscles);

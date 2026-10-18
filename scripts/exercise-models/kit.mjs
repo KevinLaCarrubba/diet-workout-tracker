@@ -89,6 +89,11 @@ export const MUSCLE_MESHES = {
   forearms: ['forearm_l', 'forearm_r'],
   core: ['abs'],
   glutes: ['glute_l', 'glute_r'],
+  adductors: ['adductor_l', 'adductor_r'],
+  abductors: ['abductor_l', 'abductor_r'],
+  // The coach plan tags every leg exercise "legs"; generic fallback (the
+  // generator narrows it per exercise to that exercise's own leg muscles).
+  legs: ['quads_l', 'quads_r', 'hamstrings_l', 'hamstrings_r'],
   quads: ['quads_l', 'quads_r'],
   hamstrings: ['hamstrings_l', 'hamstrings_r'],
   calves: ['calf_l', 'calf_r'],
@@ -139,6 +144,8 @@ export function buildMannequin() {
     part(`thigh_${side}`, hip, GEO.thigh, body, [0, -0.215, 0]);
     part(`quads_${side}`, hip, GEO.sphere, muscle, [0, -0.2, 0.035], [0.055, 0.16, 0.045]);
     part(`hamstrings_${side}`, hip, GEO.sphere, muscle, [0, -0.21, -0.035], [0.05, 0.15, 0.045]);
+    part(`adductor_${side}`, hip, GEO.sphere, muscle, [-sx * 0.045, -0.14, 0], [0.03, 0.11, 0.045]);
+    part(`abductor_${side}`, j.hips, GEO.sphere, muscle, [sx * 0.13, 0, -0.015], [0.04, 0.07, 0.06]);
     const knee = joint(`knee_${side}`, hip, [0, -DIM.thigh, 0]);
     part(`shin_${side}`, knee, GEO.shin, body, [0, -0.21, 0]);
     part(`calf_${side}`, knee, GEO.sphere, muscle, [0, -0.12, -0.03], [0.042, 0.1, 0.04]);
@@ -221,6 +228,7 @@ export function pullUpBar(name) {
 
 export const PLATE_RADIUS = 0.225;
 export const PROP_BUILDERS = {
+  kettlebell,
   barbell,
   dumbbell,
   bench,
@@ -258,6 +266,7 @@ export function mirrorLimb(spec) {
     };
   }
   if (spec.pole) out.pole = mirrorX(spec.pole);
+  if (spec.footYaw) out.footYaw = -spec.footYaw;
   return out;
 }
 /** Same spec for both arms; IK targets and poles are mirrored across X. */
@@ -475,4 +484,38 @@ export function alternatingTimeline(tempo, rest, leftWork, rightWork, minHold = 
     duration,
     keys: [...scale(one.keys, 0, one.duration), ...scale(two.keys, one.duration, two.duration).slice(1)],
   };
+}
+
+/** Kettlebell: origin at the handle (where the hand grips), bell below. Handle along X. */
+export function kettlebell(name) {
+  const g = new THREE.Group();
+  g.name = name;
+  part(`${name}_bell`, g, GEO.sphere, MATERIALS.plate, [0, -0.12, 0], [0.09, 0.085, 0.09]);
+  part(`${name}_handle`, g, GEO.cyl, MATERIALS.plate, [0, 0, 0], [0.013, 0.13, 0.013], [0, 0, 90]);
+  for (const sx of [1, -1]) {
+    part(`${name}_horn${sx}`, g, GEO.box, MATERIALS.plate, [sx * 0.062, -0.035, 0], [0.024, 0.07, 0.024]);
+  }
+  return g;
+}
+
+/**
+ * Calf raise foot: the ankle swings on an arc around the ball of the foot, so
+ * the ball stays planted on `ball` while the foot pitches (negative = heel
+ * below the step, positive = up on the toes). `calfAnkle` gives the same point
+ * for placing the body.
+ */
+const BALL = [-0.065, 0.14]; // ball of the foot relative to the ankle (y, z)
+const BALL_R = Math.hypot(...BALL);
+const BALL_A0 = (Math.atan2(-BALL[1], BALL[0]) * 180) / Math.PI;
+export function calfFoot(ball, pitch, extra = {}) {
+  return {
+    ik: { arc: { center: ball, radius: BALL_R, angle: BALL_A0 - pitch, plane: 'yz' } },
+    footPitch: pitch,
+    pole: [0.15, 0, 1],
+    ...extra,
+  };
+}
+export function calfAnkle(ball, pitch) {
+  const a = (BALL_A0 - pitch) * DEG;
+  return [ball[0], ball[1] - BALL_R * Math.cos(a), ball[2] + BALL_R * Math.sin(a)];
 }

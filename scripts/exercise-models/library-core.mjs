@@ -55,7 +55,6 @@ export const CORE_EXERCISES = [
     name: 'Goblet Squat',
     slug: 'goblet-squat',
     muscles: [['quads', 'glutes'], ['core']],
-    aliases: ['Kettlebell Squats'],
     duration: 3.2,
     props: [{ type: 'dumbbell', attach: 'chest', position: [0, 0.06, 0.2], rotation: [0, 0, 90] }],
     camera: { target: [0, 0.85, 0], distance: 3.3, view: 'side' },
@@ -437,7 +436,7 @@ function plank(pitch) {
 }
 
 /** Lunge stance: `front`/`back` are [x, z] or [x, y, z] ankle targets. */
-function lungePose({ root, front, back, backPitch = 0 }, mirrored = false) {
+export function lungePose({ root, front, back, backPitch = 0 }, mirrored = false) {
   const target = ([x, a, b]) => (b === undefined ? [x, DIM.ankleY, a] : [x, a, b]);
   const frontLeg = { ik: target(front), pole: [0.1, 0, 1], footPitch: 0 };
   const backLeg = {

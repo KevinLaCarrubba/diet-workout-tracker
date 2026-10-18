@@ -7,7 +7,8 @@
       "quads": ["quads_l", "quads_r"],
       "glutes": ["glute_l", "glute_r"],
       "hamstrings": ["hamstrings_l", "hamstrings_r"],
-      "core": ["abs"]
+      "core": ["abs"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
     },
     "durationSeconds": 3.4,
     "camera": { "target": [0, 0.9, 0], "distance": 3.4, "view": "side" }
@@ -16,10 +17,14 @@
     "file": "goblet-squat.glb",
     "primaryMuscles": ["quads", "glutes"],
     "secondaryMuscles": ["core"],
-    "meshesByMuscle": { "quads": ["quads_l", "quads_r"], "glutes": ["glute_l", "glute_r"], "core": ["abs"] },
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "core": ["abs"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
+    },
     "durationSeconds": 3.2,
-    "camera": { "target": [0, 0.85, 0], "distance": 3.3, "view": "side" },
-    "aliases": ["Kettlebell Squats"]
+    "camera": { "target": [0, 0.85, 0], "distance": 3.3, "view": "side" }
   },
   "Barbell Bench Press": {
     "file": "barbell-bench-press.glb",
@@ -56,7 +61,8 @@
       "hamstrings": ["hamstrings_l", "hamstrings_r"],
       "glutes": ["glute_l", "glute_r"],
       "forearms": ["forearm_l", "forearm_r"],
-      "core": ["abs"]
+      "core": ["abs"],
+      "legs": ["hamstrings_l", "hamstrings_r", "glute_l", "glute_r"]
     },
     "durationSeconds": 3.6,
     "camera": { "target": [0, 0.75, 0], "distance": 3.4, "view": "side" }
@@ -68,7 +74,8 @@
     "meshesByMuscle": {
       "hamstrings": ["hamstrings_l", "hamstrings_r"],
       "glutes": ["glute_l", "glute_r"],
-      "back": ["upper_back", "lats_l", "lats_r"]
+      "back": ["upper_back", "lats_l", "lats_r"],
+      "legs": ["hamstrings_l", "hamstrings_r", "glute_l", "glute_r"]
     },
     "durationSeconds": 3.6,
     "camera": { "target": [0, 0.85, 0], "distance": 3.4, "view": "side" }
@@ -114,7 +121,8 @@
     "meshesByMuscle": {
       "quads": ["quads_l", "quads_r"],
       "glutes": ["glute_l", "glute_r"],
-      "hamstrings": ["hamstrings_l", "hamstrings_r"]
+      "hamstrings": ["hamstrings_l", "hamstrings_r"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
     },
     "durationSeconds": 4.4,
     "camera": { "target": [0, 0.85, 0], "distance": 3.5, "view": "side" },
@@ -178,7 +186,8 @@
     },
     "durationSeconds": 5.25,
     "tempo": "2-1-2-0",
-    "camera": { "target": [0, 0.7, 0.3], "distance": 3.6, "view": "side" }
+    "camera": { "target": [0, 0.7, 0.3], "distance": 3.6, "view": "side" },
+    "aliases": ["Seated Cable Row"]
   },
   "Bent-over Cable High Elbow Row": {
     "file": "bent-over-cable-high-elbow-row.glb",
@@ -222,7 +231,8 @@
     "secondaryMuscles": [],
     "meshesByMuscle": { "biceps": ["biceps_l", "biceps_r"], "forearms": ["forearm_l", "forearm_r"] },
     "durationSeconds": 6.8,
-    "camera": { "target": [0, 1.05, 0], "distance": 3.4, "view": "front" }
+    "camera": { "target": [0, 1.05, 0], "distance": 3.4, "view": "front" },
+    "aliases": ["Hammer Curl"]
   },
   "Seated Bicep Preacher Curl Machine": {
     "file": "seated-preacher-curl-machine.glb",
@@ -243,7 +253,8 @@
     },
     "durationSeconds": 4.25,
     "tempo": "1-2-1-0",
-    "camera": { "target": [0, 1.35, 0.35], "distance": 3.6, "view": "side" }
+    "camera": { "target": [0, 1.35, 0.35], "distance": 3.6, "view": "side" },
+    "aliases": ["Face Pull"]
   },
   "Bent Over Cable Rear Delt Flyes": {
     "file": "bent-over-cable-rear-delt-fly.glb",
@@ -408,5 +419,321 @@
     },
     "durationSeconds": 4,
     "camera": { "target": [0, 1.5, 0], "distance": 4.4, "view": "front" }
+  },
+  "Quad Extensions": {
+    "file": "quad-extension.glb",
+    "primaryMuscles": ["quads"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": { "quads": ["quads_l", "quads_r"], "legs": ["quads_l", "quads_r"] },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.6, 0.15], "distance": 3.2, "view": "side" },
+    "aliases": ["Leg Extension"]
+  },
+  "Hamstring Curls": {
+    "file": "hamstring-curl.glb",
+    "primaryMuscles": ["hamstrings"],
+    "secondaryMuscles": ["calves"],
+    "meshesByMuscle": {
+      "hamstrings": ["hamstrings_l", "hamstrings_r"],
+      "calves": ["calf_l", "calf_r"],
+      "legs": ["hamstrings_l", "hamstrings_r"]
+    },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.6, 0], "distance": 3.4, "view": "side" },
+    "aliases": ["Lying Leg Curl"]
+  },
+  "Pendulum Squat": {
+    "file": "pendulum-squat.glb",
+    "primaryMuscles": ["quads", "glutes"],
+    "secondaryMuscles": ["hamstrings"],
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "hamstrings": ["hamstrings_l", "hamstrings_r"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
+    },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.95, -0.2], "distance": 3.8, "view": "side" }
+  },
+  "Hack Squat": {
+    "file": "hack-squat.glb",
+    "primaryMuscles": ["quads", "glutes"],
+    "secondaryMuscles": ["hamstrings", "adductors"],
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "hamstrings": ["hamstrings_l", "hamstrings_r"],
+      "adductors": ["adductor_l", "adductor_r"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
+    },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.75, -0.1], "distance": 3.8, "view": "side" },
+    "aliases": ["Hack Squat (Light Weight)"]
+  },
+  "Hips Adductors (Close Legs)": {
+    "file": "hip-adductor-machine.glb",
+    "primaryMuscles": ["adductors"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": { "adductors": ["adductor_l", "adductor_r"], "legs": ["adductor_l", "adductor_r"] },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.7, 0.1], "distance": 3.2, "view": "front" }
+  },
+  "Hip Abductors (Open Legs)": {
+    "file": "hip-abductor-machine.glb",
+    "primaryMuscles": ["abductors", "glutes"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": {
+      "abductors": ["abductor_l", "abductor_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "legs": ["abductor_l", "abductor_r", "glute_l", "glute_r"]
+    },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.7, 0.1], "distance": 3.2, "view": "front" }
+  },
+  "Heavy Hip Thrusts": {
+    "file": "hip-thrust.glb",
+    "primaryMuscles": ["glutes"],
+    "secondaryMuscles": ["hamstrings"],
+    "meshesByMuscle": {
+      "glutes": ["glute_l", "glute_r"],
+      "hamstrings": ["hamstrings_l", "hamstrings_r"],
+      "legs": ["glute_l", "glute_r"]
+    },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.45, 0.1], "distance": 3.6, "view": "side" },
+    "aliases": ["Light Hip Thrusts", "Hip Thrust"]
+  },
+  "Wall Sits": {
+    "file": "wall-sit.glb",
+    "primaryMuscles": ["quads", "glutes"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
+    },
+    "durationSeconds": 4,
+    "camera": { "target": [0, 0.7, 0.1], "distance": 3.2, "view": "side" }
+  },
+  "Dumbbell Split Squats": {
+    "file": "dumbbell-split-squat.glb",
+    "primaryMuscles": ["quads", "glutes"],
+    "secondaryMuscles": ["hamstrings"],
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "hamstrings": ["hamstrings_l", "hamstrings_r"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
+    },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.8, 0], "distance": 3.6, "view": "side" }
+  },
+  "Kettlebell Split Squats": {
+    "file": "kettlebell-split-squat.glb",
+    "primaryMuscles": ["quads", "glutes"],
+    "secondaryMuscles": ["hamstrings"],
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "hamstrings": ["hamstrings_l", "hamstrings_r"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
+    },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.8, 0], "distance": 3.6, "view": "side" }
+  },
+  "Seated Calf Raise": {
+    "file": "seated-calf-raise.glb",
+    "primaryMuscles": ["calves"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": { "calves": ["calf_l", "calf_r"], "legs": ["calf_l", "calf_r"] },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.55, 0.2], "distance": 3, "view": "side" }
+  },
+  "Standing Calf Raise": {
+    "file": "standing-calf-raise.glb",
+    "primaryMuscles": ["calves"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": { "calves": ["calf_l", "calf_r"], "legs": ["calf_l", "calf_r"] },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 1, 0], "distance": 3.6, "view": "side" }
+  },
+  "Weighted Step-ups (on bench or box)": {
+    "file": "weighted-step-up.glb",
+    "primaryMuscles": ["quads", "glutes"],
+    "secondaryMuscles": ["hamstrings"],
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "hamstrings": ["hamstrings_l", "hamstrings_r"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
+    },
+    "durationSeconds": 5,
+    "camera": { "target": [0, 1, 0.25], "distance": 3.8, "view": "side" }
+  },
+  "Bodyweight Squats": {
+    "file": "bodyweight-squat.glb",
+    "primaryMuscles": ["quads", "glutes"],
+    "secondaryMuscles": ["hamstrings", "core"],
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "hamstrings": ["hamstrings_l", "hamstrings_r"],
+      "core": ["abs"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
+    },
+    "durationSeconds": 3,
+    "camera": { "target": [0, 0.85, 0], "distance": 3.3, "view": "side" }
+  },
+  "Kettlebell Squats": {
+    "file": "kettlebell-squat.glb",
+    "primaryMuscles": ["quads", "glutes"],
+    "secondaryMuscles": ["core"],
+    "meshesByMuscle": {
+      "quads": ["quads_l", "quads_r"],
+      "glutes": ["glute_l", "glute_r"],
+      "core": ["abs"],
+      "legs": ["quads_l", "quads_r", "glute_l", "glute_r"]
+    },
+    "durationSeconds": 3.2,
+    "camera": { "target": [0, 0.85, 0], "distance": 3.3, "view": "side" }
+  },
+  "Incline Y-Raise": {
+    "file": "incline-y-raise.glb",
+    "primaryMuscles": ["shoulders", "upper back"],
+    "secondaryMuscles": ["rear delts"],
+    "meshesByMuscle": {
+      "shoulders": ["delt_l", "delt_r"],
+      "upper back": ["upper_back"],
+      "rear delts": ["delt_l", "delt_r"]
+    },
+    "durationSeconds": 4.25,
+    "tempo": "1-2-1-0",
+    "camera": { "target": [0, 0.9, 0.25], "distance": 3.6, "view": "front" }
+  },
+  "Lying Dumbbell Rear Delt Flyes": {
+    "file": "lying-dumbbell-rear-delt-fly.glb",
+    "primaryMuscles": ["rear delts"],
+    "secondaryMuscles": ["upper back", "shoulders"],
+    "meshesByMuscle": {
+      "rear delts": ["delt_l", "delt_r"],
+      "upper back": ["upper_back"],
+      "shoulders": ["delt_l", "delt_r"]
+    },
+    "durationSeconds": 4.25,
+    "tempo": "1-2-1-0",
+    "camera": { "target": [0, 0.85, 0.25], "distance": 3.6, "view": "front" }
+  },
+  "Hammer Dumbbell Front Raise": {
+    "file": "hammer-dumbbell-front-raise.glb",
+    "primaryMuscles": ["shoulders"],
+    "secondaryMuscles": ["chest"],
+    "meshesByMuscle": { "shoulders": ["delt_l", "delt_r"], "chest": ["chest_l", "chest_r"] },
+    "durationSeconds": 4.25,
+    "tempo": "1-2-1-0",
+    "camera": { "target": [0, 1.1, 0.15], "distance": 3.6, "view": "side" }
+  },
+  "Cable Pushdown w/ Rope": {
+    "file": "cable-rope-pushdown.glb",
+    "primaryMuscles": ["triceps"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": { "triceps": ["triceps_l", "triceps_r"] },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 1.2, 0.2], "distance": 3.6, "view": "side" },
+    "aliases": ["Triceps Pushdown"]
+  },
+  "Single Hand Cable Pushdown": {
+    "file": "single-hand-cable-pushdown.glb",
+    "primaryMuscles": ["triceps"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": { "triceps": ["triceps_l", "triceps_r"] },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 1.2, 0.1], "distance": 3.6, "view": "front" }
+  },
+  "Overhead Cable Tricep Extension": {
+    "file": "overhead-cable-tricep-extension.glb",
+    "primaryMuscles": ["triceps"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": { "triceps": ["triceps_l", "triceps_r"] },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 1.3, 0], "distance": 3.8, "view": "side" }
+  },
+  "Seated Triceps Pushdown Machine": {
+    "file": "seated-triceps-pushdown-machine.glb",
+    "primaryMuscles": ["triceps"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": { "triceps": ["triceps_l", "triceps_r"] },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.85, -0.1], "distance": 3.4, "view": "side" }
+  },
+  "Cable Tricep Kickback": {
+    "file": "cable-tricep-kickback.glb",
+    "primaryMuscles": ["triceps"],
+    "secondaryMuscles": [],
+    "meshesByMuscle": { "triceps": ["triceps_l", "triceps_r"] },
+    "durationSeconds": 3.4,
+    "camera": { "target": [0, 0.9, 0.1], "distance": 3.6, "view": "side" }
+  },
+  "Pec Deck Machine Chest Flyes": {
+    "file": "pec-deck-fly.glb",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["shoulders"],
+    "meshesByMuscle": { "chest": ["chest_l", "chest_r"], "shoulders": ["delt_l", "delt_r"] },
+    "durationSeconds": 6.25,
+    "tempo": "2-3-1-0",
+    "camera": { "target": [0, 1, 0.1], "distance": 3.6, "view": "front" }
+  },
+  "Seated Machine Press": {
+    "file": "seated-machine-chest-press.glb",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["triceps", "shoulders"],
+    "meshesByMuscle": {
+      "chest": ["chest_l", "chest_r"],
+      "triceps": ["triceps_l", "triceps_r"],
+      "shoulders": ["delt_l", "delt_r"]
+    },
+    "durationSeconds": 6.25,
+    "tempo": "2-3-1-0",
+    "camera": { "target": [0, 1.05, 0.2], "distance": 3.6, "view": "side" },
+    "aliases": ["Machine Chest Press"]
+  },
+  "Incline Machine Press": {
+    "file": "incline-machine-press.glb",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["shoulders", "triceps"],
+    "meshesByMuscle": {
+      "chest": ["chest_l", "chest_r"],
+      "shoulders": ["delt_l", "delt_r"],
+      "triceps": ["triceps_l", "triceps_r"]
+    },
+    "durationSeconds": 6.25,
+    "tempo": "2-3-1-0",
+    "camera": { "target": [0, 1.1, -0.1], "distance": 3.6, "view": "side" }
+  },
+  "Smith Machine Flat Bench": {
+    "file": "smith-machine-flat-bench.glb",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["triceps", "shoulders"],
+    "meshesByMuscle": {
+      "chest": ["chest_l", "chest_r"],
+      "triceps": ["triceps_l", "triceps_r"],
+      "shoulders": ["delt_l", "delt_r"]
+    },
+    "durationSeconds": 6.25,
+    "tempo": "2-3-1-0",
+    "camera": { "target": [0, 0.75, -0.1], "distance": 3.6, "view": "side" }
+  },
+  "Chest Dips": {
+    "file": "chest-dip.glb",
+    "primaryMuscles": ["chest"],
+    "secondaryMuscles": ["triceps", "shoulders"],
+    "meshesByMuscle": {
+      "chest": ["chest_l", "chest_r"],
+      "triceps": ["triceps_l", "triceps_r"],
+      "shoulders": ["delt_l", "delt_r"]
+    },
+    "durationSeconds": 6.25,
+    "tempo": "2-3-1-0",
+    "camera": { "target": [0, 1.25, 0], "distance": 3.8, "view": "side" },
+    "aliases": ["Dip"]
   }
 }

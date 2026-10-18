@@ -19,16 +19,16 @@ import {
   tempoTimeline,
 } from './kit.mjs';
 
-const BACK = '2-1-2-0';
-const SHOULDERS = '1-2-1-0';
-const CHEST = '2-3-1-0';
-const UNTIMED = '1.6-0.3-1.2-0.3'; // smooth default for exercises without a coach tempo
+export const BACK = '2-1-2-0';
+export const SHOULDERS = '1-2-1-0';
+export const CHEST = '2-3-1-0';
+export const UNTIMED = '1.6-0.3-1.2-0.3'; // smooth default for exercises without a coach tempo
 
 /** Feet planted under a seat, knees bent ~90°. */
-const seatedLegs = (x = 0.16, z = 0.42) => legs(foot(x, z, { pole: [0.2, 0.4, 1] }));
+export const seatedLegs = (x = 0.16, z = 0.42) => legs(foot(x, z, { pole: [0.2, 0.4, 1] }));
 
 /** Holds still props in place; the same values are reused by several exercises. */
-const thighPad = (id, z = 0.3) => [
+export const thighPad = (id, z = 0.3) => [
   {
     type: 'cyl',
     id: `${id}_roll`,
@@ -43,14 +43,14 @@ const thighPad = (id, z = 0.3) => [
 ];
 
 // Body reclined on a 30° incline bench (hips pitched back 60°), feet on the floor.
-const INCLINE_BODY = {
+export const INCLINE_BODY = {
   root: [0, 0.58, 0.05],
   rootPitch: -60,
   torso: 0,
   neck: 10,
   ...legs({ ik: [0.22, DIM.ankleY, 0.62], pole: [0.2, 0, 1], footPitch: 0 }),
 };
-const inclineBench = () => [
+export const inclineBench = () => [
   // Back pad rides on the spine so it sits flush with the (static) torso.
   {
     type: 'box',
@@ -68,14 +68,14 @@ const inclineBench = () => [
 ];
 
 // Prone on an incline bench (chest supported), hips pitched forward 45°.
-const CHEST_SUPPORTED_BODY = {
+export const CHEST_SUPPORTED_BODY = {
   root: [0, 0.78, 0],
   rootPitch: 45,
   torso: 0,
   neck: -22,
   ...legs({ ik: [0.16, DIM.ankleY, -0.28], pole: [0.2, 0, 1], footPitch: 0 }),
 };
-const chestPad = () => [
+export const chestPad = () => [
   {
     type: 'box',
     id: 'pad',
@@ -121,7 +121,7 @@ const pressPivot = [0.36, 1.198, -0.81];
 const vikingPivot = [0, 0.05, 2.4];
 const pulloverPivot = [0.34, 1.01, 0];
 
-const rope = (station) => {
+export const rope = (station) => {
   const knot = {
     knot: { a: { node: 'wrist_l' }, b: { node: 'wrist_r' }, toward: station.pulley, length: 0.32 },
   };
@@ -219,6 +219,8 @@ export const COACH_EXERCISES = [
   {
     name: 'Seated Close Grip Row',
     slug: 'seated-close-grip-row',
+    // Same movement as the shared catalog exercise.
+    aliases: ['Seated Cable Row'],
     muscles: [
       ['back', 'lats'],
       ['biceps', 'rear delts'],
@@ -368,6 +370,8 @@ export const COACH_EXERCISES = [
   {
     name: 'Standing Dumbbell Hammer Curls',
     slug: 'standing-dumbbell-hammer-curl',
+    // Same movement as the shared catalog exercise.
+    aliases: ['Hammer Curl'],
     muscles: [['biceps', 'forearms'], []],
     ...alternatingTimeline(UNTIMED, 'rest', 'left', 'right'),
     props: [
@@ -456,6 +460,8 @@ export const COACH_EXERCISES = [
   {
     name: 'Cable Rope Face Pulls',
     slug: 'cable-rope-face-pull',
+    // Same movement as the shared catalog exercise.
+    aliases: ['Face Pull'],
     muscles: [['rear delts', 'upper back'], ['shoulders']],
     tempo: SHOULDERS,
     ...tempoTimeline(SHOULDERS),

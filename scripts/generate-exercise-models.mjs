@@ -43,11 +43,12 @@ import * as THREE from 'three';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter.js';
 import { DEG, MUSCLE_MESHES, PLATE_RADIUS, PROP_BUILDERS, buildMannequin } from './exercise-models/kit.mjs';
 import { COACH_EXERCISES } from './exercise-models/library-coach.mjs';
+import { COACH_EXERCISES_2 } from './exercise-models/library-coach-2.mjs';
 import { CORE_EXERCISES } from './exercise-models/library-core.mjs';
 
 const OUT_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'models', 'exercises');
 const FPS = 20;
-const EXERCISES = [...CORE_EXERCISES, ...COACH_EXERCISES];
+const EXERCISES = [...CORE_EXERCISES, ...COACH_EXERCISES, ...COACH_EXERCISES_2];
 
 // GLTFExporter uses FileReader to assemble the binary; Node only ships Blob.
 if (typeof globalThis.FileReader === 'undefined') {
@@ -154,6 +155,9 @@ function applyFk(upper, lower, spec, side, isArm) {
   const sx = side === 'l' ? 1 : -1;
   const euler = new THREE.Euler(-(spec.flex ?? 0) * DEG, 0, sx * (spec.abd ?? 0) * DEG, 'ZXY');
   const q = new THREE.Quaternion().setFromEuler(euler);
+  // yaw > 0 turns a flexed limb outward (e.g. knees apart on an adductor machine).
+  if (spec.yaw)
+    q.premultiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, sx * spec.yaw * DEG, 0)));
   if (spec.world) {
     upper.quaternion.copy(worldQuat(upper.parent).invert().multiply(q));
   } else {
@@ -388,6 +392,15 @@ async function main() {
     for (const muscle of [...primaryMuscles, ...secondaryMuscles]) {
       if (!MUSCLE_MESHES[muscle]) throw new Error(`${exercise.name}: no meshes for muscle "${muscle}"`);
       meshesByMuscle[muscle] = MUSCLE_MESHES[muscle];
+    }
+    // Leg exercises also answer to the coach plan's generic "legs" group, narrowed
+    // to this exercise's own primary leg muscles (all of them if none are primary).
+    const LEG_MUSCLES = ['quads', 'hamstrings', 'glutes', 'calves', 'adductors', 'abductors'];
+    const legPrimary = primaryMuscles.filter((m) => LEG_MUSCLES.includes(m));
+    const legAny = [...primaryMuscles, ...secondaryMuscles].filter((m) => LEG_MUSCLES.includes(m));
+    const legMuscles = legPrimary.length > 0 ? legPrimary : legAny;
+    if (legMuscles.length > 0 && !meshesByMuscle.legs) {
+      meshesByMuscle.legs = [...new Set(legMuscles.flatMap((m) => MUSCLE_MESHES[m]))];
     }
     manifest[exercise.name] = {
       file,
