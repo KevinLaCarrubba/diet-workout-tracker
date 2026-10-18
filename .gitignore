@@ -1,0 +1,22 @@
+node_modules
+dist
+dev-dist
+coverage
+playwright-report
+test-results
+*.local
+.env
+.env.*
+!.env.example
+.DS_Store
+supabase/.temp
+supabase/.branches
+supabase/functions/.env
+
+# Local smoke scripts (use test credentials)
+scripts/.*.mjs
+scripts/smoke-*.mjs
+
+# Local Claude/Vercel state
+.claude/settings.local.json
+.vercel

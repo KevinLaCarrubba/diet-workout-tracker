@@ -1,0 +1,36 @@
+:root {
+  --app-header-height: 56px;
+  --app-nav-height: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+html,
+body {
+  overscroll-behavior-y: none;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--mantine-color-body);
+}
+
+/* Numbers that change (timers, weights) should not jitter. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.picker-row:hover,
+.picker-row:focus-visible {
+  background-color: var(--mantine-color-default-hover);
+}

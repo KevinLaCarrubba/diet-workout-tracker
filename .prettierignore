@@ -1,0 +1,12 @@
+node_modules
+dist
+dev-dist
+coverage
+playwright-report
+test-results
+package-lock.json
+supabase/.temp
+src/types/database.ts
+.agents
+skills-lock.json
+FitTrack_Claude_Code_Build_Spec.md

@@ -1,0 +1,124 @@
+.page {
+  min-height: 100dvh;
+  padding-bottom: calc(140px + var(--safe-bottom));
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: calc(var(--safe-top) + 8px) var(--mantine-spacing-md) 8px;
+  background-color: color-mix(in srgb, var(--mantine-color-body) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--mantine-color-default-border);
+}
+
+.timer {
+  font-size: 28px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 10px var(--mantine-spacing-md);
+  scroll-snap-type: x proximity;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.chip {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  min-height: 40px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--mantine-color-default-border);
+  background: var(--mantine-color-default);
+  color: var(--mantine-color-text);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  &[data-active] {
+    border-color: var(--mantine-primary-color-filled);
+    color: var(--mantine-primary-color-filled);
+  }
+
+  &[data-done] {
+    background: color-mix(in srgb, var(--mantine-primary-color-filled) 14%, transparent);
+  }
+}
+
+.setGrid {
+  display: grid;
+  grid-template-columns: 40px 64px minmax(0, 1fr) minmax(0, 1fr) 52px 32px;
+  align-items: center;
+  gap: 6px;
+}
+
+.setRow {
+  composes: setGrid;
+  padding: 6px 4px;
+  border-radius: var(--mantine-radius-md);
+  transition: background-color 120ms ease;
+
+  &[data-completed] {
+    background-color: color-mix(in srgb, var(--mantine-primary-color-filled) 12%, transparent);
+  }
+}
+
+.setInput input {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  height: 48px;
+}
+
+.prefilled input {
+  color: var(--mantine-color-dimmed);
+}
+
+.check {
+  width: 48px;
+  height: 48px;
+}
+
+.restBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  padding: 12px var(--mantine-spacing-md) calc(12px + var(--safe-bottom));
+  background-color: var(--mantine-color-dark-8);
+  border-top: 1px solid var(--mantine-color-default-border);
+
+  @mixin light {
+    background-color: var(--mantine-color-gray-0);
+  }
+}
+
+.restTime {
+  font-size: 34px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  padding: 12px var(--mantine-spacing-md) calc(12px + var(--safe-bottom));
+  background: linear-gradient(to top, var(--mantine-color-body) 70%, transparent);
+}

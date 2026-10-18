@@ -1,0 +1,860 @@
+{
+  "source": "garrett-lopez-2026-10-18",
+  "workout_time": "05:00",
+  "rest_weekdays": [4],
+  "workouts": [
+    {
+      "key": "sun",
+      "weekday": 7,
+      "title": "Sunday — Back + Biceps",
+      "description": "Back (tempo 2-1-2-0) + Biceps",
+      "items": [
+        {
+          "name": "Cable Lat Pushdowns",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Seated Neutral Grip Lat Pulldown",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Seated Close Grip Row",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Bent-over Cable High Elbow Row",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Seated Machine High Row w/ Twist (Single Hand)",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Standing Single Arm Bicep Cable Curl",
+          "group": "Biceps",
+          "tempo": null,
+          "muscles": ["biceps"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10,
+          "cue": "Step forward to start with tension pulling."
+        },
+        {
+          "name": "Standing Alternating Dumbbell Curl",
+          "group": "Biceps",
+          "tempo": null,
+          "muscles": ["biceps"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Standing Dumbbell Hammer Curls",
+          "group": "Biceps",
+          "tempo": null,
+          "muscles": ["biceps"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10,
+          "cue": "+5 lb over your previous curls (coach cue, not a fixed load)."
+        },
+        {
+          "name": "Seated Bicep Preacher Curl Machine",
+          "group": "Biceps",
+          "tempo": null,
+          "muscles": ["biceps"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        }
+      ],
+      "notes": "Coach: Garrett Lopez (Oct 18, 2026). Goal: build muscle. Default 3 × 10 for every exercise unless stated. No rest interval was specified — set your own. AMRAP = as many reps as possible with good form; log actual reps. Weights start blank — log what you lift. Adjust or disable anything that bothers your joints and check with your coach/clinician. Supplements (coach, optional — weight-training days only): any pre-workout 15–30 min before training; intra-workout 1 serving BCAAs OR EAAs in 16–24 oz water, sipped throughout; eat the post-workout meal right after training."
+    },
+    {
+      "key": "mon",
+      "weekday": 1,
+      "title": "Monday — Shoulders + Chest",
+      "description": "Shoulders (tempo 1-2-1-0) + Chest (tempo 2-3-1-0)",
+      "items": [
+        {
+          "name": "Cable Rope Face Pulls",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Bent Over Cable Rear Delt Flyes",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Cable Side Lateral Raise",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Cable Front Raise",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Seated Machine Overhead Press",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Standing Viking Press",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 1,
+          "rep_mode": "amrap"
+        },
+        {
+          "name": "Seated Dumbbell Lateral Raise",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 2,
+          "rep_mode": "amrap"
+        },
+        {
+          "name": "Incline Dumbbell Chest Flyes",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Cable Crossovers",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Barbell Bench Press",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Incline Bench Press",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Smith Machine Incline Bench",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Push-ups",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "amrap"
+        }
+      ],
+      "notes": "Coach: Garrett Lopez (Oct 18, 2026). Goal: build muscle. Default 3 × 10 for every exercise unless stated. No rest interval was specified — set your own. AMRAP = as many reps as possible with good form; log actual reps. Weights start blank — log what you lift. Adjust or disable anything that bothers your joints and check with your coach/clinician. Supplements (coach, optional — weight-training days only): any pre-workout 15–30 min before training; intra-workout 1 serving BCAAs OR EAAs in 16–24 oz water, sipped throughout; eat the post-workout meal right after training."
+    },
+    {
+      "key": "tue",
+      "weekday": 2,
+      "title": "Tuesday — Legs + Glutes + Calves",
+      "description": "Legs + Glutes + Calves (heavy)",
+      "items": [
+        {
+          "name": "Quad Extensions",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Hamstring Curls",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Heavy Lunges",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Pendulum Squat",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Hack Squat",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10,
+          "cue": "Wide stance, toes out, push through glutes."
+        },
+        {
+          "name": "Hips Adductors (Close Legs)",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Hip Abductors (Open Legs)",
+          "group": "Glutes",
+          "tempo": null,
+          "muscles": ["glutes"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Heavy Hip Thrusts",
+          "group": "Glutes",
+          "tempo": null,
+          "muscles": ["glutes"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Wall Sits",
+          "group": "Glutes",
+          "tempo": null,
+          "muscles": ["glutes"],
+          "sets": 5,
+          "rep_mode": "timed",
+          "duration_seconds_min": 30,
+          "cue": "5 rounds, 30+ seconds each."
+        },
+        {
+          "name": "Dumbbell Split Squats",
+          "group": "Glutes",
+          "tempo": null,
+          "muscles": ["glutes"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10,
+          "alternatives": ["Kettlebell Split Squats"]
+        },
+        {
+          "name": "Seated Calf Raise",
+          "group": "Calves",
+          "tempo": null,
+          "muscles": ["calves"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 20,
+          "rep_max": 20
+        },
+        {
+          "name": "Standing Calf Raise",
+          "group": "Calves",
+          "tempo": null,
+          "muscles": ["calves"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 20,
+          "rep_max": 20
+        }
+      ],
+      "notes": "Coach: Garrett Lopez (Oct 18, 2026). Goal: build muscle. Default 3 × 10 for every exercise unless stated. No rest interval was specified — set your own. AMRAP = as many reps as possible with good form; log actual reps. Weights start blank — log what you lift. Adjust or disable anything that bothers your joints and check with your coach/clinician. Supplements (coach, optional — weight-training days only): any pre-workout 15–30 min before training; intra-workout 1 serving BCAAs OR EAAs in 16–24 oz water, sipped throughout; eat the post-workout meal right after training."
+    },
+    {
+      "key": "wed",
+      "weekday": 3,
+      "title": "Wednesday — Back",
+      "description": "Back (tempo 2-1-2-0)",
+      "items": [
+        {
+          "name": "Machine Seated Pullover",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Incline Bench Chest Supported Cable Rows",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Cable Seated High Row",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Single Arm Alternating Dumbbell Row (Bench Supported)",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Bent Over Barbell Row",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Pull-ups",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 3,
+          "rep_mode": "amrap"
+        },
+        {
+          "name": "Dead Weight Hangs",
+          "group": "Back",
+          "tempo": "2-1-2-0",
+          "muscles": ["back"],
+          "sets": 4,
+          "rep_mode": "timed",
+          "duration_seconds_min": 20,
+          "cue": "4 rounds, 20+ seconds each."
+        }
+      ],
+      "notes": "Coach: Garrett Lopez (Oct 18, 2026). Goal: build muscle. Default 3 × 10 for every exercise unless stated. No rest interval was specified — set your own. AMRAP = as many reps as possible with good form; log actual reps. Weights start blank — log what you lift. Adjust or disable anything that bothers your joints and check with your coach/clinician. Supplements (coach, optional — weight-training days only): any pre-workout 15–30 min before training; intra-workout 1 serving BCAAs OR EAAs in 16–24 oz water, sipped throughout; eat the post-workout meal right after training."
+    },
+    {
+      "key": "fri",
+      "weekday": 5,
+      "title": "Friday — Shoulders + Triceps + Chest",
+      "description": "Shoulders (1-2-1-0) + Triceps + Chest (2-3-1-0)",
+      "items": [
+        {
+          "name": "Incline Y-Raise",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Lying Dumbbell Rear Delt Flyes",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Hammer Dumbbell Front Raise",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Seated Dumbbell Lateral Raise",
+          "group": "Shoulders",
+          "tempo": "1-2-1-0",
+          "muscles": ["shoulders"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Cable Pushdown w/ Rope",
+          "group": "Triceps",
+          "tempo": null,
+          "muscles": ["triceps"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Single Hand Cable Pushdown",
+          "group": "Triceps",
+          "tempo": null,
+          "muscles": ["triceps"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10,
+          "cue": "Supinated grip; start from the opposite pec and push outward."
+        },
+        {
+          "name": "Overhead Cable Tricep Extension",
+          "group": "Triceps",
+          "tempo": null,
+          "muscles": ["triceps"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Seated Triceps Pushdown Machine",
+          "group": "Triceps",
+          "tempo": null,
+          "muscles": ["triceps"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Cable Tricep Kickback",
+          "group": "Triceps",
+          "tempo": null,
+          "muscles": ["triceps"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Pec Deck Machine Chest Flyes",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Seated Machine Press",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Incline Machine Press",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Smith Machine Flat Bench",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Chest Dips",
+          "group": "Chest",
+          "tempo": "2-3-1-0",
+          "muscles": ["chest"],
+          "sets": 3,
+          "rep_mode": "amrap"
+        }
+      ],
+      "notes": "Coach: Garrett Lopez (Oct 18, 2026). Goal: build muscle. Default 3 × 10 for every exercise unless stated. No rest interval was specified — set your own. AMRAP = as many reps as possible with good form; log actual reps. Weights start blank — log what you lift. Adjust or disable anything that bothers your joints and check with your coach/clinician. Supplements (coach, optional — weight-training days only): any pre-workout 15–30 min before training; intra-workout 1 serving BCAAs OR EAAs in 16–24 oz water, sipped throughout; eat the post-workout meal right after training."
+    },
+    {
+      "key": "sat",
+      "weekday": 6,
+      "title": "Saturday — Legs + Glutes + Calves",
+      "description": "Legs + Glutes + Calves (lighter)",
+      "items": [
+        {
+          "name": "Quad Extensions",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Hamstring Curls",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Bodyweight Lunges",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Weighted Step-ups (on bench or box)",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Hack Squat (Light Weight)",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Hips Adductors (Close Legs)",
+          "group": "Legs",
+          "tempo": null,
+          "muscles": ["legs"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Hip Abductors (Open Legs)",
+          "group": "Glutes",
+          "tempo": null,
+          "muscles": ["glutes"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Light Hip Thrusts",
+          "group": "Glutes",
+          "tempo": null,
+          "muscles": ["glutes"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10
+        },
+        {
+          "name": "Wall Sits",
+          "group": "Glutes",
+          "tempo": null,
+          "muscles": ["glutes"],
+          "sets": 5,
+          "rep_mode": "timed",
+          "duration_seconds_min": 30,
+          "cue": "5 rounds, 30+ seconds each."
+        },
+        {
+          "name": "Bodyweight Squats",
+          "group": "Glutes",
+          "tempo": null,
+          "muscles": ["glutes"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 10,
+          "rep_max": 10,
+          "alternatives": ["Kettlebell Squats"]
+        },
+        {
+          "name": "Seated Calf Raise",
+          "group": "Calves",
+          "tempo": null,
+          "muscles": ["calves"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 20,
+          "rep_max": 20
+        },
+        {
+          "name": "Standing Calf Raise",
+          "group": "Calves",
+          "tempo": null,
+          "muscles": ["calves"],
+          "sets": 3,
+          "rep_mode": "reps",
+          "rep_min": 20,
+          "rep_max": 20
+        }
+      ],
+      "notes": "Coach: Garrett Lopez (Oct 18, 2026). Goal: build muscle. Default 3 × 10 for every exercise unless stated. No rest interval was specified — set your own. AMRAP = as many reps as possible with good form; log actual reps. Weights start blank — log what you lift. Adjust or disable anything that bothers your joints and check with your coach/clinician. Supplements (coach, optional — weight-training days only): any pre-workout 15–30 min before training; intra-workout 1 serving BCAAs OR EAAs in 16–24 oz water, sipped throughout; eat the post-workout meal right after training."
+    }
+  ],
+  "meals": [
+    {
+      "key": "meal-1",
+      "meal_number": 1,
+      "display_order": 1,
+      "label": "Meal 1",
+      "description": "Upon waking — whey",
+      "local_time": "04:35",
+      "weekdays": [1, 2, 3, 4, 5, 6, 7],
+      "items": [
+        {
+          "text": "2 scoops whey protein"
+        }
+      ],
+      "coach_note": "Eat within 30 minutes of waking or immediately after fasted cardio. No other food prescribed.",
+      "notes": "Proposed 4:35 AM (wake 4:30, before the 5:00 AM gym start) — this is not fasted cardio.",
+      "relative_event": "wake",
+      "relative_offset_minutes": 5
+    },
+    {
+      "key": "meal-4",
+      "meal_number": 4,
+      "display_order": 2,
+      "label": "Meal 4",
+      "description": "Post-workout meal",
+      "local_time": "06:30",
+      "weekdays": [1, 2, 3, 5, 6, 7],
+      "items": [
+        {
+          "text": "6 oz lean white protein: chicken OR 93% lean ground turkey OR white fish — OR 2 scoops whey protein"
+        },
+        {
+          "text": "1 serving cream of rice (serving size not specified)"
+        }
+      ],
+      "coach_note": "Immediately after post-workout cardio / upon finishing training. Adjust placement around your actual training time.",
+      "notes": "Default 6:30 AM; finishing a logged workout triggers this reminder sooner. Not scheduled on Thursday (rest day).",
+      "relative_event": "workout_end",
+      "relative_offset_minutes": 0
+    },
+    {
+      "key": "meal-2",
+      "meal_number": 2,
+      "display_order": 3,
+      "label": "Meal 2",
+      "description": "Beef",
+      "local_time": "09:00",
+      "weekdays": [1, 2, 3, 4, 5, 6, 7],
+      "items": [
+        {
+          "text": "6 oz 90% lean grass-fed beef OR sirloin steak OR bison"
+        },
+        {
+          "text": "4–8 spears asparagus OR 1 cucumber",
+          "optional": true
+        },
+        {
+          "text": "1 digestive enzyme tablet (NOW Nutrition) with the meal",
+          "optional": true
+        }
+      ],
+      "coach_note": "No rice or other side required.",
+      "notes": "Proposed time (not set by coach) — edit anytime."
+    },
+    {
+      "key": "meal-3",
+      "meal_number": 3,
+      "display_order": 4,
+      "label": "Meal 3",
+      "description": "Pre-workout meal",
+      "local_time": "12:30",
+      "weekdays": [1, 2, 3, 5, 6, 7],
+      "items": [
+        {
+          "text": "6 oz lean white protein: chicken OR 99% lean ground turkey"
+        },
+        {
+          "text": "5.5 oz jasmine rice"
+        },
+        {
+          "text": "36 g peanut butter — Skippy (with simple sugars, not organic)"
+        }
+      ],
+      "coach_note": "Eat 60–90 minutes before training. When training at a different time, switch the pre-/post-workout meals with the meals around your actual training time.",
+      "notes": "Proposed time (not set by coach) — edit anytime. Not scheduled on Thursday (rest day).",
+      "relative_event": "workout_start",
+      "relative_offset_minutes": -75,
+      "needs_confirmation": true,
+      "confirmation_note": "Timing conflict: the coach wants this 60–90 minutes before training, but your gym starts at 5:00 AM, so at 12:30 PM it is not pre-workout. Confirm with your coach how to place it."
+    },
+    {
+      "key": "meal-5",
+      "meal_number": 5,
+      "display_order": 5,
+      "label": "Meal 5",
+      "description": "Protein and rice",
+      "local_time": "16:30",
+      "weekdays": [1, 2, 3, 4, 5, 6, 7],
+      "items": [
+        {
+          "text": "6 oz lean white protein: chicken OR 99% lean ground turkey OR white fish"
+        },
+        {
+          "text": "5 oz jasmine rice"
+        },
+        {
+          "text": "4–8 spears asparagus OR 1 cucumber",
+          "optional": true
+        }
+      ],
+      "notes": "Proposed time (not set by coach) — edit anytime."
+    },
+    {
+      "key": "meal-6",
+      "meal_number": 6,
+      "display_order": 6,
+      "label": "Meal 6",
+      "description": "Egg whites or whey",
+      "local_time": "20:00",
+      "weekdays": [1, 2, 3, 4, 5, 6, 7],
+      "items": [
+        {
+          "text": "11 oz egg whites — OR 1.5 scoops whey protein"
+        },
+        {
+          "text": "4–8 spears asparagus (with egg whites)",
+          "optional": true
+        }
+      ],
+      "notes": "Proposed time (not set by coach) — edit anytime."
+    }
+  ],
+  "note": "Quantities are stored exactly as written; raw vs cooked weights were not specified by the coach."
+}
