@@ -111,7 +111,7 @@ describe('coach plan import', () => {
     expect(sunday.slice(0, 2)).toEqual(['Cable Lat Pushdowns', 'Seated Neutral Grip Lat Pulldown']);
   });
 
-  it('loads six meals with coach numbering, rest-day exceptions and the Meal 3 conflict flag', async () => {
+  it('loads six meals with coach numbering, rest-day exceptions and Meal 3 before the gym', async () => {
     const meals = await asUser(db, me, (tx) =>
       tx.query<{
         meal_number: number;
@@ -126,15 +126,15 @@ describe('coach plan import', () => {
       ),
     );
     expect(meals.rows.map((m) => [m.meal_number, m.local_time])).toEqual([
-      [1, '04:35:00'],
+      [1, '03:35:00'],
+      [3, '04:00:00'],
       [4, '06:30:00'],
       [2, '09:00:00'],
-      [3, '12:30:00'],
       [5, '16:30:00'],
       [6, '20:00:00'],
     ]);
     const m3 = meals.rows.find((m) => m.meal_number === 3)!;
-    expect(m3.needs_confirmation).toBe(true);
+    expect(m3.needs_confirmation).toBe(false);
     expect(m3.recurrence_weekdays).not.toContain(4);
     expect(meals.rows.find((m) => m.meal_number === 4)!.recurrence_weekdays).not.toContain(4);
     expect(meals.rows.find((m) => m.meal_number === 2)!.recurrence_weekdays).toContain(4);
