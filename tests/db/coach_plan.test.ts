@@ -2,7 +2,7 @@ import type { PGlite } from '@electric-sql/pglite';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { asUser, createAuthUser, createTestDb, inviteEmail } from './harness';
+import { asUser, createAuthUser, createTestDb, deleteAuthUser, inviteEmail } from './harness';
 
 const plan = readFileSync(
   join(import.meta.dirname, '..', '..', 'supabase', 'seed', 'coach-plan-garrett-2026-10-18.json'),
@@ -172,7 +172,7 @@ describe('coach plan import', () => {
 describe('removing a member who imported the plan', () => {
   it('deletes the account and every imported row', async () => {
     await runImport(other);
-    await db.query(`delete from auth.users where id = $1`, [other]);
+    await deleteAuthUser(db, other);
     const left = await db.query<{ n: number }>(
       `select (select count(*) from public.exercises where owner_user_id = $1)::int
             + (select count(*) from public.workout_templates where user_id = $1)::int

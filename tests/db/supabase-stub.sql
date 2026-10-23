@@ -21,6 +21,11 @@ create table auth.users (
   updated_at timestamptz not null default now()
 );
 
+-- As upstream: GoTrue connects as supabase_auth_admin, which owns its tables
+-- but has no rights on public.
+grant usage on schema auth to supabase_auth_admin;
+alter table auth.users owner to supabase_auth_admin;
+
 create function auth.uid()
 returns uuid
 language sql

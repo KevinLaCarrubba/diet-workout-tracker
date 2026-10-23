@@ -101,11 +101,14 @@ Approximations to check with the owner, and fix if they don't match the gym:
 **Members (2026-10-23):** the owner (admin), two real members (gibby, joined 10-19; Josh, joined 10-23) and the
 test accounts `admin@example.com` and `bob@example.com`. Alice is already removed.
 
-- Removing Bob failed until migration `20261023000100_template_exercise_fk` (applied remotely as
-  `template_exercise_fk`). Any member with templates using their own exercises hit the exercise FK during the
-  account cascade. Now fixed for everyone.
-- `admin@example.com` can't be removed while it is an admin: `remove_member` refuses admins by design. Demote it
-  first (`update public.profiles set role = 'member' where id = …`), then use Manage members → Remove.
+- Removing members failed until migrations `20261023000100_template_exercise_fk` and
+  `20261023000200_user_delete_schedules` (remote: `template_exercise_fk`, `user_delete_schedules`).
+  `handle_user_deleted` now deletes the member's meal/workout schedules and templates itself, before the cascade.
+  - Hosted Postgres is **17**; PGlite tests run **18**, which runs AFTER triggers as the role that queued them. On
+    17 the schedule reset triggers fired as `supabase_auth_admin` (no rights on `profiles`), so DB tests can't catch
+    that class of bug. Keep account cleanup inside the SECURITY DEFINER trigger.
+- Admins can remove other admins (owner's call, 2026-10-23); only removing yourself is refused. The owner wants to be
+  the sole admin: there is no promote UI, so nobody else can become one.
 - The member cap is 5, including pending invites.
 
 **Docs housekeeping:** `docs/implementation-plan.md` still lists "deploy to Vercel" and "approve

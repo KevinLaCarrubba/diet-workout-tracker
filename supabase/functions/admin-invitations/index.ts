@@ -156,13 +156,8 @@ Deno.serve(
       case 'remove_member': {
         const targetId = uuid(body.user_id);
         if (targetId === user.id) throw new HttpError(400, 'You cannot remove yourself');
-        const { data: profile } = await admin
-          .from('profiles')
-          .select('role')
-          .eq('id', targetId)
-          .maybeSingle();
+        const { data: profile } = await admin.from('profiles').select('id').eq('id', targetId).maybeSingle();
         if (!profile) throw new HttpError(404, 'Member not found');
-        if (profile.role === 'admin') throw new HttpError(400, 'Admins cannot be removed here');
         // Private files are not covered by the database cascade.
         const { data: files } = await admin.storage.from('progress-photos').list(targetId, { limit: 1000 });
         if (files && files.length > 0) {

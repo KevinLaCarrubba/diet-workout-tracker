@@ -40,6 +40,14 @@ export async function createAuthUser(
   return result.rows[0]!.id;
 }
 
+/** Deletes an account the way GoTrue does: as supabase_auth_admin. */
+export async function deleteAuthUser(db: PGlite, userId: string): Promise<void> {
+  await db.transaction(async (tx) => {
+    await tx.exec(`set local role supabase_auth_admin`);
+    await tx.query(`delete from auth.users where id = $1`, [userId]);
+  });
+}
+
 export async function confirmAuthUser(db: PGlite, userId: string): Promise<void> {
   await db.query(`update auth.users set email_confirmed_at = now() where id = $1`, [userId]);
 }
