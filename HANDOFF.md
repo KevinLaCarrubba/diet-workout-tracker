@@ -98,12 +98,14 @@ Approximations to check with the owner, and fix if they don't match the gym:
   skip.
 - Done: Site URL set to the Vercel URL; app installed on the iPhone with push enabled.
 
-**Before inviting real people (launch):**
+**Members (2026-10-23):** the owner (admin), two real members (gibby, joined 10-19; Josh, joined 10-23) and the
+test accounts `admin@example.com` and `bob@example.com`. Alice is already removed.
 
-- Remove the test accounts `admin@example.com` (also an admin), `alice@example.com` and `bob@example.com` via
-  Manage members → Remove, or the `admin-invitations` `remove_member` action.
-  - Alice has test rows: a meal, a scheduled workout and a revoked fake push subscription.
-  - Bob also has a copy of the coach plan.
+- Removing Bob failed until migration `20261023000100_template_exercise_fk` (applied remotely as
+  `template_exercise_fk`). Any member with templates using their own exercises hit the exercise FK during the
+  account cascade. Now fixed for everyone.
+- `admin@example.com` can't be removed while it is an admin: `remove_member` refuses admins by design. Demote it
+  first (`update public.profiles set role = 'member' where id = …`), then use Manage members → Remove.
 - The member cap is 5, including pending invites.
 
 **Docs housekeeping:** `docs/implementation-plan.md` still lists "deploy to Vercel" and "approve

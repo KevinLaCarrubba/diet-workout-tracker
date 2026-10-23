@@ -168,3 +168,29 @@ describe('coach plan import', () => {
     ).rejects.toThrow(/permission denied/);
   });
 });
+
+describe('removing a member who imported the plan', () => {
+  it('deletes the account and every imported row', async () => {
+    await runImport(other);
+    await db.query(`delete from auth.users where id = $1`, [other]);
+    const left = await db.query<{ n: number }>(
+      `select (select count(*) from public.exercises where owner_user_id = $1)::int
+            + (select count(*) from public.workout_templates where user_id = $1)::int
+            + (select count(*) from public.meal_schedules where user_id = $1)::int as n`,
+      [other],
+    );
+    expect(left.rows[0]!.n).toBe(0);
+  });
+
+  it('still refuses to delete an exercise a template uses', async () => {
+    const used = await db.query<{ id: string }>(
+      `select e.id from public.exercises e
+         join public.workout_template_exercises wte on wte.exercise_id = e.id
+        where e.owner_user_id = $1 limit 1`,
+      [me],
+    );
+    await expect(
+      asUser(db, me, (tx) => tx.query(`delete from public.exercises where id = $1`, [used.rows[0]!.id])),
+    ).rejects.toMatchObject({ code: '23503' });
+  });
+});
