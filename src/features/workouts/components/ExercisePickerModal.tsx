@@ -1,18 +1,8 @@
-import {
-  Badge,
-  Button,
-  Group,
-  Modal,
-  ScrollArea,
-  Skeleton,
-  Stack,
-  Text,
-  TextInput,
-  UnstyledButton,
-} from '@mantine/core';
+import { Badge, Button, Group, Modal, Skeleton, Stack, Text, TextInput, UnstyledButton } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import { useMemo, useState } from 'react';
 import { useExercises, type Exercise } from '../api';
+import classes from './ExercisePickerModal.module.css';
 import { filterExercises } from './filterExercises';
 
 interface Props {
@@ -43,8 +33,9 @@ export function ExercisePickerModal({
       fullScreen
       radius={0}
       transitionProps={{ transition: 'slide-up' }}
+      classNames={{ content: classes.content, body: classes.body }}
     >
-      <Stack>
+      <Stack className={classes.stack}>
         <TextInput
           placeholder="Search name, muscle or equipment"
           leftSection={<IconSearch size={18} />}
@@ -63,7 +54,7 @@ export function ExercisePickerModal({
             No exercises match “{query}”.
           </Text>
         ) : (
-          <ScrollArea.Autosize mah="calc(100dvh - 160px)">
+          <div className={classes.list}>
             <Stack gap={4}>
               {list.map((e) => (
                 <UnstyledButton
@@ -94,7 +85,7 @@ export function ExercisePickerModal({
                 </UnstyledButton>
               ))}
             </Stack>
-          </ScrollArea.Autosize>
+          </div>
         )}
         <Button variant="default" onClick={onClose}>
           Cancel

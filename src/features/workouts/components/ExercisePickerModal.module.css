@@ -1,0 +1,25 @@
+/* Search stays on top, Cancel at the bottom, and the list fills what's left of
+   the visible viewport, so it shrinks above the keyboard instead of under it. */
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.stack {
+  flex: 1;
+  min-height: 0;
+}
+
+.list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}

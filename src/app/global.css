@@ -30,6 +30,25 @@ body {
   }
 }
 
+/*
+ * Full-screen modals cover the notch and home indicator in the installed app
+ * (viewport-fit=cover), and size to the visible viewport so the iOS keyboard
+ * doesn't hide their content (see lib/visualViewport.ts).
+ */
+.mantine-Modal-content[data-full-screen] {
+  height: var(--visual-viewport-height, 100dvh);
+  margin-top: var(--visual-viewport-top, 0px);
+}
+
+.mantine-Modal-content[data-full-screen] .mantine-Modal-header {
+  padding-top: calc(var(--mantine-spacing-md) + var(--safe-top));
+}
+
+.mantine-Modal-content[data-full-screen] .mantine-Modal-body,
+.mantine-Drawer-body {
+  padding-bottom: calc(var(--mantine-spacing-md) + var(--safe-bottom));
+}
+
 .picker-row:hover,
 .picker-row:focus-visible {
   background-color: var(--mantine-color-default-hover);
